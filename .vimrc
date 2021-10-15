@@ -1,7 +1,8 @@
-
 " Using bash
 set shell=/bin/bash
 
+" Turn on syntax highlighting
+syntax on
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -36,6 +37,10 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'stephpy/vim-yaml'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " User Settings
 let g:airline_theme='simple'
