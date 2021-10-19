@@ -20,6 +20,8 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval `cat $HOME/.ssh/ssh-agent`
 fi
 
+echo "defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false"
+echo "defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default"
 
 # Source bashrc
 source ~/.bashrc
