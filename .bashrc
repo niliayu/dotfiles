@@ -22,11 +22,30 @@ alias pip="python3 -m pip"
 
 # For git
 alias squashnewcommit="git commit -m \"tmp\" && git rebase -i HEAD~2"
-alias rebasemaster="git checkout master && git pull && git checkout - && git rebase master"
-alias newbranch="git checkout master && git pull && git checkout - && git checkout -b"
+alias rebasemain="git checkout main && git pull && git checkout - && git rebase main"
+alias newbranch="git checkout main && git pull && git checkout -b"
+alias newbranch_main="git checkout main && git pull && git checkout -b"
+alias pipinstalle="pip install -e . --trusted-host infra-pypicloud.prod.pachama.com --index-url https://infra-pypicloud.prod.pachama.com/simple/"
+
+alias rg="rg --hidden"
+
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/ailinyu/repos/labs/secrets/gcloud.json"
+export DOCKER_BUILDKIT=1
+
+# Run VSCode with no proxy server, which I need for extensions to work sometimes for some reason
+alias code_no_proxy="code --no-proxy-server"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ailinyu/y/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ailinyu/y/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc'; fi
+
+eval "$(thefuck --alias)"
+
+# Enable kube autocompletion
+source <(kubectl completion bash)
+
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin
+

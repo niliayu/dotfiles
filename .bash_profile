@@ -23,8 +23,9 @@ fi
 echo "defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false"
 echo "defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default"
 
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 # Source bashrc
 source ~/.bashrc
-
-
 
