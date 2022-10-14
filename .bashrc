@@ -27,7 +27,7 @@ alias newbranch="git checkout main && git pull && git checkout -b"
 alias newbranch_main="git checkout main && git pull && git checkout -b"
 alias pipinstalle="pip install -e . --trusted-host infra-pypicloud.prod.pachama.com --index-url https://infra-pypicloud.prod.pachama.com/simple/"
 
-alias rg="rg --hidden"
+alias rg="rg --hidden -g '!{.git/*}'"
 
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/ailinyu/repos/labs/secrets/gcloud.json"
 export DOCKER_BUILDKIT=1
@@ -48,4 +48,8 @@ source <(kubectl completion bash)
 
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
+
+export FLYTE_ADMIN_ENDPOINT="dns:///flyte.labs.pachama.com"
+export FLYTE_PROJECT="project-evaluation"
+export FLYTE_DOMAIN="development"
 

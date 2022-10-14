@@ -20,8 +20,8 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval `cat $HOME/.ssh/ssh-agent`
 fi
 
-echo "defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false"
-echo "defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+# echo "defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default"
 
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
