@@ -18,7 +18,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias pip="python3 -m pip"
+alias pip="/opt/homebrew/bin/pip3.8"
+alias python="/opt/homebrew/bin/python3.8"
+alias pip3="/opt/homebrew/bin/pip3.8"
+alias python3="/opt/homebrew/bin/python3.8"
+
 
 # For git
 alias squashnewcommit="git commit -m \"tmp\" && git rebase -i HEAD~2"
@@ -41,15 +45,16 @@ if [ -f '/Users/ailinyu/y/google-cloud-sdk/path.bash.inc' ]; then . '/Users/aili
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc'; fi
 
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 # Enable kube autocompletion
 source <(kubectl completion bash)
 
 export GOPATH=$(go env GOPATH)
+export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 
-export FLYTE_ADMIN_ENDPOINT="dns:///flyte.labs.pachama.com"
-export FLYTE_PROJECT="project-evaluation"
-export FLYTE_DOMAIN="development"
+#export FLYTE_ADMIN_ENDPOINT="dns:///flyte.labs.pachama.com"
+#export FLYTE_PROJECT="project-evaluation"
+#export FLYTE_DOMAIN="development"
 

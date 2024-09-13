@@ -13,6 +13,7 @@ dotfiles_dir=~/repos/dotfiles
 # ln -sf $dotfiles_dir/.vim ~/.vim
 ln -sf $dotfiles_dir/.vimrc ~/.vimrc
 ln -sf $dotfiles_dir/.bashrc ~/.bashrc
+ln -sf $dotfiles_dir/.bash_profile ~/.bash_profile
 ln -sf $dotfiles_dir/.tmux ~/.tmux
 ln -sf $dotfiles_dir/.tmux.conf ~/.tmux.conf
 
