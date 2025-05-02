@@ -1,5 +1,8 @@
 set -x
 
+brew install kubectl
+brew install go
+
 # Remove existing dotfiles
 sudo rm -rf ~/.vim > /dev/null 2>&1
 sudo rm -rf ~/.vimrc > /dev/null 2>&1

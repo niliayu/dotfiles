@@ -48,7 +48,7 @@ if [ -f '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc' ]; then . '/User
 # eval "$(thefuck --alias)"
 
 # Enable kube autocompletion
-source <(kubectl completion bash)
+# source <(kubectl completion bash)
 
 export GOPATH=$(go env GOPATH)
 export PATH=/opt/homebrew/bin:$PATH
