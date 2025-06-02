@@ -18,10 +18,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias pip="/opt/homebrew/bin/pip3.8"
-alias python="/opt/homebrew/bin/python3.8"
-alias pip3="/opt/homebrew/bin/pip3.8"
-alias python3="/opt/homebrew/bin/python3.8"
+# alias pip="/opt/homebrew/bin/pip3.8"
+# alias python="/opt/homebrew/bin/python3.8"
+# alias pip3="/opt/homebrew/bin/pip3.8"
+# alias python3="/opt/homebrew/bin/python3.8"
 
 
 # For git
@@ -58,3 +58,10 @@ export PATH=$PATH:$(go env GOPATH)/bin
 #export FLYTE_PROJECT="project-evaluation"
 #export FLYTE_DOMAIN="development"
 
+mkdir -p ~/.nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+
+. "$HOME/.cargo/env"
