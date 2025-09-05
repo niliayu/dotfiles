@@ -65,3 +65,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 . "$HOME/.cargo/env"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/Users/ailinyu/go/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@11"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
