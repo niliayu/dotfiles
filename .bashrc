@@ -18,12 +18,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# alias pip="/opt/homebrew/bin/pip3.8"
-# alias python="/opt/homebrew/bin/python3.8"
-# alias pip3="/opt/homebrew/bin/pip3.8"
-# alias python3="/opt/homebrew/bin/python3.8"
-
-
 # For git
 alias squashnewcommit="git commit -m \"tmp\" && git rebase -i HEAD~2"
 alias rebasemain="git checkout main && git pull && git checkout - && git rebase main"
@@ -32,6 +26,8 @@ alias newbranch_main="git checkout main && git pull && git checkout -b"
 alias pipinstalle="pip install -e . --trusted-host infra-pypicloud.prod.pachama.com --index-url https://infra-pypicloud.prod.pachama.com/simple/"
 
 alias rg="rg --hidden -g '!{.git/*}'"
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/ailinyu/repos/labs/secrets/gcloud.json"
 export DOCKER_BUILDKIT=1
@@ -48,20 +44,26 @@ if [ -f '/Users/ailinyu/y/google-cloud-sdk/completion.bash.inc' ]; then . '/User
 # eval "$(thefuck --alias)"
 
 # Enable kube autocompletion
-# source <(kubectl completion bash)
+source <(kubectl completion bash)
 
-export GOPATH=$(go env GOPATH)
+# export GOPATH=$(go env GOPATH)
 export PATH=/opt/homebrew/bin:$PATH
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
 
-#export FLYTE_ADMIN_ENDPOINT="dns:///flyte.labs.pachama.com"
-#export FLYTE_PROJECT="project-evaluation"
-#export FLYTE_DOMAIN="development"
+# mkdir -p ~/.nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-mkdir -p ~/.nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
-
+eval "$(uv generate-shell-completion bash)"
+eval "$(uvx --generate-shell-completion bash)"
 . "$HOME/.cargo/env"
+
+
+rtmux() {
+       local host="${@: -1}"  # Last argument is the host
+       local ssh_opts="${@:1:$(($#-1))}"  # Everything else is SSH options
+       ssh -A $ssh_opts "$host" "cat > /tmp/tmux-$$.conf && tmux -f /tmp/tmux-$$.conf attach || tmux -f /tmp/tmux-$$.conf new" < ~/.tmux.conf
+   }
