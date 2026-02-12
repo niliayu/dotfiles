@@ -63,7 +63,17 @@ eval "$(uvx --generate-shell-completion bash)"
 
 
 rtmux() {
-       local host="${@: -1}"  # Last argument is the host
-       local ssh_opts="${@:1:$(($#-1))}"  # Everything else is SSH options
-       ssh -A $ssh_opts "$host" "cat > /tmp/tmux-$$.conf && tmux -f /tmp/tmux-$$.conf attach || tmux -f /tmp/tmux-$$.conf new" < ~/.tmux.conf
-   }
+    ssh -A -t "$1" "cat > /tmp/tmux-remote.conf <<'EOF'
+set-option -g default-shell /bin/bash
+set-option -g default-terminal \"screen-256color\"
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+bind-key v copy-mode
+bind-key p paste-buffer
+EOF
+tmux -f /tmp/tmux-remote.conf attach || tmux -f /tmp/tmux-remote.conf new"
+}
