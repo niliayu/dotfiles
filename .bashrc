@@ -74,6 +74,8 @@ bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 bind-key v copy-mode
 bind-key p paste-buffer
+set-option -g update-environment \"SSH_AUTH_SOCK SSH_CONNECTION DISPLAY\"
+setenv -g SSH_AUTH_SOCK \$SSH_AUTH_SOCK
 EOF
 tmux -f /tmp/tmux-remote.conf attach || tmux -f /tmp/tmux-remote.conf new"
 }
